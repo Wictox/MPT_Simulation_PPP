@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -332320444516818314, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
+      propertyPath: Name
+      value: 7dida
+      objectReference: {fileID: 0}
     - target: {fileID: 509941937144149824, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -98,7 +102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8201691992221961252, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
       propertyPath: m_Name
-      value: item 2 Variant
+      value: 7dida
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

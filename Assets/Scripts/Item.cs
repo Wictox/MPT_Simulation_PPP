@@ -14,22 +14,12 @@ public class Item : MonoBehaviour
 
     public virtual void PickUp()
     {
-        // Get the Sprite from the SpriteRenderer (assuming this is a ground item)
-        // Note: If you use 'Image' here, it only works for UI elements, not ground items.
-        // If this is a ground item, use SpriteRenderer instead!
-        SpriteRenderer sr = GetComponent<SpriteRenderer>();
-        Sprite itemIcon = (sr != null) ? sr.sprite : null;
+        // She uses Image here, but remember to use SpriteRenderer if this is a ground item!
+        Sprite itemIcon = GetComponent<Image>().sprite; 
 
-        // Use 'FindAnyObjectByType' if you aren't using a Singleton 'Instance' pattern
-        ItemPickupUIController uiController = FindAnyObjectByType<ItemPickupUIController>();
-
-        if (uiController != null)
+        if (ItemPickupUIController.Instance != null)
         {
-            uiController.ShowItemPickup(itemIcon, Name);
+            ItemPickupUIController.Instance.ShowItemPickup(Name, itemIcon);
         }
-        else
-        {
-            Debug.LogWarning("ItemPickupUIController not found in the scene.");
-        } 
     }
 }

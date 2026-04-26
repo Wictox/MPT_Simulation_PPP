@@ -6,6 +6,7 @@ public class SaveController : MonoBehaviour
 {
     private string saveLocation;
     private InventoryController inventoryController;
+    private HotbarController hotbarController;
     
     // Cache these references to improve performance
     private GameObject player;
@@ -16,6 +17,7 @@ public class SaveController : MonoBehaviour
         // Define the save location
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json"); 
         inventoryController = FindObjectOfType<InventoryController>();
+        hotbarController = FindObjectOfType<HotbarController>();
         
         // Find our objects once at the start
         player = GameObject.FindGameObjectWithTag("Player");
@@ -43,7 +45,8 @@ public class SaveController : MonoBehaviour
         {
             playerPosition = player.transform.position,
             mapBoundary = boundaryName,
-            inventorySaveData = inventoryController.GetInventoryItems() // Get the current inventory state
+            inventorySaveData = inventoryController.GetInventoryItems(), // Get the current inventory state
+            hotbarSaveData = hotbarController.GetHotbarItems() // Get the current hotbar state
         };
 
         // Convert the data object to JSON and write it to the file
@@ -77,6 +80,7 @@ public class SaveController : MonoBehaviour
                     inventoryController.SetInventoryItems(data.inventorySaveData); // Restore the inventory state
                 }
             }
+            hotbarController.SetHotbarItems(data.hotbarSaveData); // Restore the hotbar state
         }
         else
         {

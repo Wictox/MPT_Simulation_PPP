@@ -24,6 +24,7 @@ public class PlayerItemCollector : MonoBehaviour
 
                 if (itemadded)
                 {
+                    item.PickUp(); // Show the pickup UI
                     Destroy(collision.gameObject); // Remove the item from the floor
                 }
             }

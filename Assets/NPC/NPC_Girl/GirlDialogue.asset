@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b96f90339546cf74b8edec9a1d5767bf, type: 3}
+  m_Name: GirlDialogue
+  m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
+  npcName: 
+  npcPortrait: {fileID: -7527145504033472756, guid: af47712e6d15d7a46b2f4e6f468eab16, type: 3}
+  dialogueLines:
+  - Hi!
+  - Cette Zelafa est Incroyable!
+  - 'INPT >> ENSIAS '
+  autoProgressLines: 010101
+  autoProgressDelay: 1
+  typingSpeed: 0.025
+  voiceSound: {fileID: 8300000, guid: e87f049ca57845e478a118992b3bef6e, type: 3}
+  voicePitch: 1

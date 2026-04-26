@@ -18,7 +18,12 @@ public class MenuController : MonoBehaviour
         // The new way to check for a single key press
         if (Keyboard.current.escapeKey.wasPressedThisFrame || Keyboard.current.tabKey.wasPressedThisFrame) 
         {
+            if (!menuCanvas.activeSelf && PauseController.IsGamePaused)
+            {
+                return ;
+            }
             menuCanvas.SetActive(!menuCanvas.activeSelf); 
+            PauseController.SetPause(menuCanvas.activeSelf);
         }
     }
 }

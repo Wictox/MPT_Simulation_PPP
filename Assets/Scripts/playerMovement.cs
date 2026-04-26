@@ -20,6 +20,13 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseController.IsGamePaused)
+        {
+            rb.linearVelocity = UnityEngine.Vector2.zero; // Stop the player's movement when the game is paused
+            animator.SetBool("isWalking", false); // Set the walking animation to false
+            return;
+
+        } // If the game is paused, skip the movement logic
         rb.linearVelocity = moveInput * moveSpeed; // Move the player based on input and speed
         if (rb.linearVelocity.magnitude > 0 && !playingFootsteps) // If the player is moving and footstep sounds are not playing
         {
@@ -29,12 +36,11 @@ public class playerMovement : MonoBehaviour
         {
             StopFootsteps(); // Stop playing footstep sounds
         }
+        animator.SetBool("isWalking", rb.linearVelocity.magnitude > 0); // Set the walking animation based on whether the player is moving
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        animator.SetBool("isWalking", true); // Set the walking animation based on whether the player is moving
-
         if (context.canceled) // If the movement input is canceled (e.g., player stops moving)
         {
             animator.SetBool("isWalking", false); // Set the walking animation to false
