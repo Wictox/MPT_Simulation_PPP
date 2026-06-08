@@ -16,12 +16,12 @@ public class SaveController : MonoBehaviour
     {
         // Define the save location
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json"); 
-        inventoryController = FindObjectOfType<InventoryController>();
-        hotbarController = FindObjectOfType<HotbarController>();
+        inventoryController = FindAnyObjectByType<InventoryController>();
+        hotbarController = FindAnyObjectByType<HotbarController>();
         
         // Find our objects once at the start
         player = GameObject.FindGameObjectWithTag("Player");
-        confiner = FindFirstObjectByType<CinemachineConfiner2D>();
+        confiner = FindAnyObjectByType<CinemachineConfiner2D>();
 
         // Load the game state when the game starts
         LoadGame(); 

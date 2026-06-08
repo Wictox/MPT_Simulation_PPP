@@ -12,7 +12,7 @@ public class InventoryController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        itemDictionary = FindObjectOfType<ItemDictionary>();
+        itemDictionary = FindAnyObjectByType<ItemDictionary>();
     }
 
     public bool AddItem(GameObject itemPrefab)

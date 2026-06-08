@@ -16,7 +16,7 @@ public class map_Transition : MonoBehaviour
     private void Awake()
     {
         // Modern Unity way to find the confiner
-        confiner = UnityEngine.Object.FindFirstObjectByType<CinemachineConfiner2D>();
+        confiner = UnityEngine.Object.FindAnyObjectByType<CinemachineConfiner2D>();
     } 
 
     private void OnTriggerEnter2D(Collider2D collision)

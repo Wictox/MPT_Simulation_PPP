@@ -7,7 +7,7 @@ public class PlayerItemCollector : MonoBehaviour
     void Start()
     {
         // FIX 1: Search the whole scene for the InventoryController, not just the Player!
-        inventoryController = FindFirstObjectByType<InventoryController>();
+        inventoryController = FindAnyObjectByType<InventoryController>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
