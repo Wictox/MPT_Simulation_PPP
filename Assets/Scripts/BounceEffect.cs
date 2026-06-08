@@ -1,13 +1,15 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 public class BounceEffect : MonoBehaviour
 {
-    public float bounceHeight = 0.3f; // The height of the bounce
-    public float bounceDuration = 0.4f; // The duration of the bounce
+    [Header("Bounce Settings")]
+    public float bounceHeight = 0.5f; 
+    public float bounceDuration = 0.4f; 
+    public int bounceCount = 3; 
 
-    public int bounceCount = 3; // Number of bounces
+    [Header("Spread Settings")]
+    public float spreadDistance = 1.2f; // How far it bursts out of the chest
 
     public void StartBounce()
     {
@@ -16,40 +18,71 @@ public class BounceEffect : MonoBehaviour
 
     private IEnumerator BounceHandler()
     {
+        // 1. Turn off the collider temporarily so the player can't grab it mid-air!
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
         Vector3 startPosition = transform.position;
-        float localHeight = bounceHeight; // Use local height for the bounce
-        float localDuration = bounceDuration; // Use local duration for the bounce
+        
+        // 2. Pick a random spot around the chest for the item to eventually land
+        Vector2 randomOffset = Random.insideUnitCircle * spreadDistance;
+        Vector3 finalPosition = startPosition + (Vector3)randomOffset;
+
+        float localHeight = bounceHeight; 
+        float localDuration = bounceDuration; 
+        
+        Vector3 currentStart = startPosition;
 
         for (int i = 0; i < bounceCount; i++)
         {
-            yield return Bounce(transform, startPosition, localHeight, localDuration / 2); // Wait for the bounce to complete
-            localHeight *= 0.5f; // Reduce the bounce height for each subsequent bounce
-            localDuration *= 0.8f; // Reduce the bounce duration for each subsequent bounce
+            // Calculate where this specific bounce should land horizontally
+            Vector3 nextTarget = Vector3.Lerp(startPosition, finalPosition, (float)(i + 1) / bounceCount);
+
+            yield return Bounce(currentStart, nextTarget, localHeight, localDuration / 2); 
+            
+            currentStart = nextTarget; // The next bounce starts where this one ended
+            localHeight *= 0.5f; 
+            localDuration *= 0.8f; 
         }
 
-        transform.position = startPosition; // Ensure the object starts at the original position
+        transform.position = finalPosition; // Snap exactly to the final spot
+        
+        // 3. Turn the collider back on so the player can collect it
+        if (col != null) col.enabled = true;
     }
 
-    private IEnumerator Bounce(Transform objectTransform, Vector3 start, float height, float duration)
+    private IEnumerator Bounce(Vector3 start, Vector3 end, float height, float halfDuration)
     {
-        Vector3 peak = start + Vector3.up * height; // Calculate the peak position of the bounce
+        // --- UPWARDS PHASE ---
         float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
+        while (elapsedTime < halfDuration)
         {
-            objectTransform.position = Vector3.Lerp(start, peak, elapsedTime / duration ); // Move towards the peak
-            elapsedTime += Time.deltaTime; // Increment elapsed time
-            yield return null; // Wait for the next frame
+            float t = elapsedTime / halfDuration;
+            
+            // Move horizontally halfway to the target
+            Vector3 currentHorizontal = Vector3.Lerp(start, Vector3.Lerp(start, end, 0.5f), t);
+            
+            // Add your vertical bounce
+            transform.position = currentHorizontal + Vector3.up * Mathf.Lerp(0, height, t);
+            
+            elapsedTime += Time.deltaTime; 
+            yield return null; 
         }
 
-
-        elapsedTime = 0f; // Reset elapsed time for the descent
-
-         while (elapsedTime < duration)
+        // --- DOWNWARDS PHASE ---
+        elapsedTime = 0f; 
+        while (elapsedTime < halfDuration)
         {
-            objectTransform.position = Vector3.Lerp(peak, start, elapsedTime / duration ); // Move towards the start position
-            elapsedTime += Time.deltaTime; // Increment elapsed time
-            yield return null; // Wait for the next frame
+            float t = elapsedTime / halfDuration;
+            
+            // Move horizontally the rest of the way
+            Vector3 currentHorizontal = Vector3.Lerp(Vector3.Lerp(start, end, 0.5f), end, t);
+            
+            // Drop the vertical bounce back down
+            transform.position = currentHorizontal + Vector3.up * Mathf.Lerp(height, 0, t);
+            
+            elapsedTime += Time.deltaTime; 
+            yield return null; 
         }
     }
 }

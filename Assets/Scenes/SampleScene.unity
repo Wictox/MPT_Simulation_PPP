@@ -8353,7 +8353,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: item 2 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3465198483025322431, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8994,7 +8995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07fc17c72eece4bb4e51c23eb7cdea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chess
-  itemPrefab: {fileID: 8201691992221961252, guid: 2b189ee0408a12a4585a1c462c0919ec, type: 3}
+  itemPrefab: {fileID: 8201691992221961252, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
   openedSprite: {fileID: 1144026751516375678, guid: d4a833f03a29df24eb644d4bd51917c3, type: 3}
 --- !u!61 &394265287
 BoxCollider2D:
@@ -113364,7 +113365,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: item 2 (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3465198483025322431, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -113804,7 +113806,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: item 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3465198483025322431, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -114761,7 +114764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d07fc17c72eece4bb4e51c23eb7cdea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chess
-  itemPrefab: {fileID: 8201691992221961252, guid: 2b189ee0408a12a4585a1c462c0919ec, type: 3}
+  itemPrefab: {fileID: 8201691992221961252, guid: 5d8b1a188b11237448d41d3fa054c71c, type: 3}
   openedSprite: {fileID: 1144026751516375678, guid: d4a833f03a29df24eb644d4bd51917c3, type: 3}
 --- !u!1 &1926247720
 GameObject:

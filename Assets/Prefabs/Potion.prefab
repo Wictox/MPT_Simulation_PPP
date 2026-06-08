@@ -233,3 +233,4 @@ MonoBehaviour:
   bounceHeight: 0.3
   bounceDuration: 0.4
   bounceCount: 3
+  spreadDistance: 1.2
