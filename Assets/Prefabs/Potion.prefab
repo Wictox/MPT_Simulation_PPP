@@ -216,6 +216,8 @@ MonoBehaviour:
   ID: 1
   Name: Potion
   quantity: 1
+  pickupSound: {fileID: 8300000, guid: 7619731e1f911d94faea2e6ef9376bbc, type: 3}
+  volume: 0.8
 --- !u!114 &-6487794944861243576
 MonoBehaviour:
   m_ObjectHideFlags: 0
