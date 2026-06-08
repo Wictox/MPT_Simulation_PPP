@@ -41,7 +41,9 @@ public class NPC : MonoBehaviour , IInteractable
         nameText.SetText(dialogueData.npcName);
         portraitImage.sprite = dialogueData.npcPortrait;
         dialoguePanel.SetActive(true);
-        PauseController.SetPause(true);
+        
+        // This pauses the game (timeScale = 0)
+        PauseController.SetPause(true); 
 
         StartCoroutine(TypeLine());
     }
@@ -70,6 +72,9 @@ public class NPC : MonoBehaviour , IInteractable
 
     IEnumerator TypeLine()
     {
+        // Prevent double-click accidental skips on the first frame
+        yield return null; 
+
         isTyping = true;
         dialogueText.SetText("");
         string line = dialogueData.dialogueLines[dialogueIndex];
@@ -78,13 +83,16 @@ public class NPC : MonoBehaviour , IInteractable
         {
             dialogueText.text += letter;
             SoundEffectManager.PlayVoice(dialogueData.voiceSound , dialogueData.voicePitch);
-            yield return new WaitForSeconds(dialogueData.typingSpeed);
+            
+            // FIX: Use Realtime so it types even when paused!
+            yield return new WaitForSecondsRealtime(dialogueData.typingSpeed);
         }
         isTyping = false;
 
         if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
         {
-            yield return new WaitForSeconds(dialogueData.autoProgressDelay);
+            // FIX: Use Realtime here too!
+            yield return new WaitForSecondsRealtime(dialogueData.autoProgressDelay);
             NextLine();
         }
     }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96f90339546cf74b8edec9a1d5767bf, type: 3}
   m_Name: NPC1 DIALOGUE
   m_EditorClassIdentifier: Assembly-CSharp::npcdialogue
-  npcName: NPC1
+  npcName: Guardien
   npcPortrait: {fileID: -7527145504033472756, guid: b21d5ab27485a3c4d833a35d6c79af7b, type: 3}
   dialogueLines:
   - Bienvenue a Inpt!

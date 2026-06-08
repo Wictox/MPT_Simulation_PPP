@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b96f90339546cf74b8edec9a1d5767bf, type: 3}
   m_Name: GirlDialogue
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
-  npcName: 
+  npcName: Sara
   npcPortrait: {fileID: -7527145504033472756, guid: af47712e6d15d7a46b2f4e6f468eab16, type: 3}
   dialogueLines:
   - Hi!
