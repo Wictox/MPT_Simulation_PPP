@@ -17,7 +17,7 @@ MonoBehaviour:
   dialogueLines:
   - Hi!
   - Cette Zelafa est Incroyable!
-  - 'INPT >> ENSIAS '
+  - 'INPT est magnifique '
   autoProgressLines: 010101
   autoProgressDelay: 1
   typingSpeed: 0.025
