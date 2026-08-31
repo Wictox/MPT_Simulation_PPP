@@ -69,4 +69,12 @@ Built by Walid Fourane, Ismail Chamsy, Salman El Khawlani, and
 Hicham Soufi. Supervised by Pr. Abdeslam En-Nouaary.
 
 
+![image alt](https://github.com/Wictox/MPT_Simulation_PPP/blob/39a27c085cd848ec206d6006790077e87a77844e/Screenshot%20From%202026-08-31%2021-12-56.png)
+
+![image alt](https://github.com/Wictox/MPT_Simulation_PPP/blob/39a27c085cd848ec206d6006790077e87a77844e/Screenshot%20From%202026-08-31%2021-13-17.png)
+
+![image alt](https://github.com/Wictox/MPT_Simulation_PPP/blob/39a27c085cd848ec206d6006790077e87a77844e/Screenshot%20From%202026-08-31%2021-13-27.png)
+
+![image alt](https://github.com/Wictox/MPT_Simulation_PPP/blob/39a27c085cd848ec206d6006790077e87a77844e/Screenshot%20From%202026-08-31%2021-17-26.png)
+
 
